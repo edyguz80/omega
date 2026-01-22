@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento Gastronómico OMEGA | Expertos en Mantenimiento Preventivo</title>
+    <meta name="description"
+        content="Servicio técnico especializado en equipos gastronómicos de panadería, cafetería e industriales. Amantes del mantenimiento preventivo. Venta de refacciones originales.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="OMEGA Logo" id="nav-logo">
+            </div>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#refacciones">Refacciones</a></li>
+                <li><a href="#contacto" class="btn-primary">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content container">
+                <h1>Amantes del <span class="text-accent">Mantenimiento Preventivo</span> Gastronómico</h1>
+                <p>Sumamos nuestro equipo al tuyo para que tu cocina inteligente, panadería o cafetería nunca se
+                    detenga.</p>
+                <div class="hero-cta">
+                    <a href="#contacto" class="btn-primary">Solicitar Servicio</a>
+                    <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/hero.png" alt="Mantenimiento Profesional">
+            </div>
+        </section>
+
+        <section id="servicios" class="container">
+            <div class="section-header">
+                <h2>Especialidades en las que <span class="text-orange">Sumamos Valor</span></h2>
+                <p>Equipos de alto rendimiento requieren mantenimiento de alta precisión.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="assets/bakery.png" alt="Equipos de Panadería">
+                    </div>
+                    <h3>Panadería</h3>
+                    <p>Mantenimiento especializado a hornos, amasadoras y equipos de fermentación.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="assets/cafeteria.png" alt="Equipos de Cafetería">
+                    </div>
+                    <h3>Cafetería</h3>
+                    <p>Cuidado meticuloso de máquinas espresso y molinos de alta gama.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="assets/smart.png" alt="Equipos Inteligentes">
+                    </div>
+                    <h3>Equipos Inteligentes</h3>
+                    <p>Expertos en sistemas inteligentes y cocinas de última generación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros">
+            <div class="container nosotros-flex">
+                <div class="nosotros-content">
+                    <h2>Más que un servicio, somos <span class="text-blue">Socios Estratégicos</span></h2>
+                    <p>En **Mantenimiento Gastronómico OMEGA**, nos apasiona la prevención. Entendemos que un equipo
+                        detenido es dinero perdido. Por eso, nos integramos a tu equipo de trabajo para asegurar la
+                        continuidad de tu operación.</p>
+                    <ul class="features">
+                        <li>Mantenimiento Industrial Integral</li>
+                        <li>Venta de Refacciones Originales</li>
+                        <li>Equipos Gastronómicos Inteligentes</li>
+                    </ul>
+                </div>
+                <div class="nosotros-image">
+                    <img src="assets/spare-parts.png" alt="Refacciones y Repuestos">
+                </div>
+            </div>
+        </section>
+
+        <section id="refacciones" class="refacciones-banner">
+            <div class="container banner-content">
+                <h2>¿Buscas Refacciones?</h2>
+                <p>Contamos con un amplio stock de refacciones originales para asegurar reparaciones duraderas.</p>
+                <a href="#contacto" class="btn-white">Consultar Disponibilidad</a>
+            </div>
+        </section>
+
+        <section id="contacto" class="container">
+            <div class="form-container">
+                <div class="form-info">
+                    <h2>Contáctanos</h2>
+                    <p>Estaremos encantados de apoyarte con el mantenimiento de tus equipos.</p>
+                </div>
+                <form id="contact-form" action="https://formsubmit.co/arodriguez@omgservicio.com,edyguz80@hotmail.com"
+                    method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="Nuevo contacto desde la Landing Page OMEGA">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://landing-omega.vercel.app/gracias.html">
+                    <!-- Opcional: URL de éxito -->
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa">Empresa / Negocio</label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu negocio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu número de contacto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">¿En qué podemos ayudarte?</label>
+                        <textarea id="mensaje" name="mensaje" rows="4"
+                            placeholder="Cuéntanos sobre tus equipos"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="assets/logo.png" alt="OMEGA Logo">
+                <p>Mantenimiento Gastronómico OMEGA</p>
+            </div>
+            <div class="footer-links">
+                <p>© 2026 OMEGA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
