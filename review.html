@@ -169,7 +169,7 @@
                 </div>
                 <div class="review-item">
                     <span class="label">Propuesta de Mejora</span>
-                    <input type="text" class="input-box" placeholder="Nuevo título...">
+                    <input type="text" id="seo-title" class="input-box" placeholder="Nuevo título...">
                 </div>
                 <div class="review-item" style="grid-column: span 2;">
                     <span class="label">Meta Descripción</span>
@@ -179,7 +179,7 @@
                 </div>
                 <div class="review-item" style="grid-column: span 2;">
                     <span class="label">Propuesta de Mejora</span>
-                    <textarea class="input-box" placeholder="Nueva meta descripción..."></textarea>
+                    <textarea id="seo-desc" class="input-box" placeholder="Nueva meta descripción..."></textarea>
                 </div>
             </div>
         </div>
@@ -196,7 +196,7 @@
                 </div>
                 <div class="review-item">
                     <span class="label">Propuesta de Mejora</span>
-                    <input type="text" class="input-box" placeholder="Nuevo título...">
+                    <input type="text" id="hero-title" class="input-box" placeholder="Nuevo título...">
                 </div>
                 <div class="review-item">
                     <span class="label">Subtítulo</span>
@@ -205,7 +205,7 @@
                 </div>
                 <div class="review-item">
                     <span class="label">Propuesta de Mejora</span>
-                    <textarea class="input-box" placeholder="Nuevo subtítulo..."></textarea>
+                    <textarea id="hero-subtitle" class="input-box" placeholder="Nuevo subtítulo..."></textarea>
                 </div>
             </div>
         </div>
@@ -222,7 +222,7 @@
                 </div>
                 <div class="review-item" style="grid-column: span 2;">
                     <span class="label">Propuesta de Mejora</span>
-                    <input type="text" class="input-box">
+                    <input type="text" id="services-title" class="input-box">
                 </div>
                 <div class="review-item">
                     <span class="label">Servicio 1: Panadería</span>
@@ -231,7 +231,7 @@
                 </div>
                 <div class="review-item">
                     <span class="label">Propuesta de Mejora</span>
-                    <textarea class="input-box"></textarea>
+                    <textarea id="service-1" class="input-box"></textarea>
                 </div>
                 <div class="review-item">
                     <span class="label">Servicio 2: Cafetería</span>
@@ -239,7 +239,7 @@
                 </div>
                 <div class="review-item">
                     <span class="label">Propuesta de Mejora</span>
-                    <textarea class="input-box"></textarea>
+                    <textarea id="service-2" class="input-box"></textarea>
                 </div>
                 <div class="review-item">
                     <span class="label">Servicio 3: Equipos Inteligentes</span>
@@ -247,7 +247,7 @@
                 </div>
                 <div class="review-item">
                     <span class="label">Propuesta de Mejora</span>
-                    <textarea class="input-box"></textarea>
+                    <textarea id="service-3" class="input-box"></textarea>
                 </div>
             </div>
         </div>
@@ -264,7 +264,7 @@
                 </div>
                 <div class="review-item">
                     <span class="label">Propuesta de Mejora</span>
-                    <input type="text" class="input-box">
+                    <input type="text" id="about-title" class="input-box">
                 </div>
                 <div class="review-item" style="grid-column: span 2;">
                     <span class="label">Descripción</span>
@@ -274,7 +274,7 @@
                 </div>
                 <div class="review-item" style="grid-column: span 2;">
                     <span class="label">Propuesta de Mejora</span>
-                    <textarea class="input-box"></textarea>
+                    <textarea id="about-desc" class="input-box"></textarea>
                 </div>
             </div>
         </div>
@@ -291,7 +291,7 @@
                 </div>
                 <div class="review-item">
                     <span class="label">Propuesta de Mejora</span>
-                    <input type="text" class="input-box">
+                    <input type="text" id="banner-title" class="input-box">
                 </div>
                 <div class="review-item">
                     <span class="label">Descripción</span>
@@ -300,15 +300,61 @@
                 </div>
                 <div class="review-item">
                     <span class="label">Propuesta de Mejora</span>
-                    <textarea class="input-box"></textarea>
+                    <textarea id="banner-desc" class="input-box"></textarea>
                 </div>
             </div>
         </div>
 
-        <button class="btn-save"
-            onclick="alert('Esta es una vista previa de la estructura. ¡Puedes empezar a escribir tus propuestas aquí mismo!')">Finalizar
-            Revisión</button>
+        <button class="btn-save" id="btn-export">Exportar Cambios para el Asistente</button>
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">
+            * Tus cambios se guardan automáticamente en este navegador.
+        </p>
     </div>
+
+    <script>
+        // Guardado automático en LocalStorage
+        const inputs = document.querySelectorAll('.input-box');
+
+        // Cargar datos guardados
+        window.addEventListener('load', () => {
+            inputs.forEach(input => {
+                const savedValue = localStorage.getItem('review-' + input.id);
+                if (savedValue) {
+                    input.value = savedValue;
+                }
+            });
+        });
+
+        // Guardar cada vez que se escribe
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                localStorage.setItem('review-' + input.id, input.value);
+            });
+        });
+
+        // Función para exportar los cambios y poder copiarlos fácilmente
+        document.getElementById('btn-export').addEventListener('click', () => {
+            let exportText = "PROPUESTA DE MEJORA OMEGA:\n\n";
+            inputs.forEach(input => {
+                if (input.value.trim() !== "") {
+                    exportText += `[${input.id.toUpperCase()}]: ${input.value}\n`;
+                }
+            });
+
+            if (exportText === "PROPUESTA DE MEJORA OMEGA:\n\n") {
+                alert("No has escrito ninguna mejora todavía.");
+                return;
+            }
+
+            // Copiar al portapapeles
+            navigator.clipboard.writeText(exportText).then(() => {
+                alert("¡Propuesta copiada al portapapeles! Puedes pegarla en el chat con el asistente.");
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+                alert("Aquí tienes tu propuesta:\n\n" + exportText);
+            });
+        });
+    </script>
 </body>
 
 </html>
